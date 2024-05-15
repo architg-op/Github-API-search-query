@@ -1,8 +1,10 @@
-# React + Vite
+# Github search query project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Create a search field, which queries public repos.
+- Fetched the data of the repos and created a card for each.   
 
-Currently, two official plugins are available:
+Following are the details, of the card:
+- Avatar, Repo name, Stars, Description, language
+- A Sort field with the following options-  Stars, watchers count, score, name,created_at, updated_at.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Run the app through `npm run dev` command
