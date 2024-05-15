@@ -1,16 +1,20 @@
 import SingleCard from './SingleCard';
 import { useContext } from 'react';
 import { MyContext } from '../MyContext';
+import Box from '@mui/material/Box';
+import LinearProgress from '@mui/material/LinearProgress';
 
 function Cards() {
   const { repos, setRepos } = useContext(MyContext);
+  const { loader, setLoader } = useContext(MyContext);
   console.log(repos);
   return (
-    <div>
+    <Box sx={{ width: '100%' }}>
+      {loader ? <LinearProgress /> : null}
       {repos
         ? repos.map((repo) => <SingleCard key={repo.id} repo={repo} />)
         : null}
-    </div>
+    </Box>
   );
 }
 

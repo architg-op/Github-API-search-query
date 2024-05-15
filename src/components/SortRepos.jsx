@@ -11,12 +11,13 @@ import { Octokit } from '@octokit/core';
 export default function SortRepos() {
   const { name, setName } = useContext(MyContext);
   const { repos, setRepos } = useContext(MyContext);
+  const { loader, setLoader } = useContext(MyContext);
 
   const callApiSorted = async (menuItem) => {
     const octokit = new Octokit({
-      auth: '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',
+      auth: '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',
     });
-
+    setLoader(true);
     let allRepos = await octokit.request(
       `GET /search/repositories?q=${name}&sort=${menuItem}&order=desc`,
       {
@@ -25,6 +26,7 @@ export default function SortRepos() {
         },
       }
     );
+    setLoader(false);
     allRepos = allRepos.data.items;
     console.log(allRepos);
     allRepos = allRepos.map((repo) => ({
@@ -47,16 +49,18 @@ export default function SortRepos() {
 
   return (
     <Dropdown>
-      <MenuButton>Sort By</MenuButton>
+      <MenuButton>Sort</MenuButton>
       <Menu slots={{ listbox: Listbox }}>
         <MenuItem onClick={createHandleMenuClick('stars')}>Stars</MenuItem>
-        <MenuItem onClick={createHandleMenuClick('Watchers count,')}>
+        <MenuItem onClick={createHandleMenuClick('watchers_count')}>
           Watchers count
         </MenuItem>
         <MenuItem onClick={createHandleMenuClick('score')}>Score</MenuItem>
         <MenuItem onClick={createHandleMenuClick('name')}>Name</MenuItem>
         <MenuItem onClick={createHandleMenuClick('created')}>Created</MenuItem>
-        <MenuItem onClick={createHandleMenuClick('updated')}>Updated</MenuItem>
+        <MenuItem onClick={createHandleMenuClick('updated')}>
+          Last updated
+        </MenuItem>
       </Menu>
     </Dropdown>
   );
