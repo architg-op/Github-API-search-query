@@ -15,7 +15,7 @@ export default function SortRepos() {
 
   const callApiSorted = async (menuItem) => {
     const octokit = new Octokit({
-      auth: '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',
+      auth: '',
     });
     setLoader(true);
     let allRepos = await octokit.request(
