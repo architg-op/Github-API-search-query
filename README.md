@@ -7,4 +7,6 @@ Following are the details, of the card:
 - Avatar, Repo name, Stars, Description, language
 - A Sort field with the following options-  Stars, watchers count, score, name,created_at, updated_at.
 
-Run the app through `npm run dev` command
+Run the app through the `npm run dev` command
+
+Deployed live at -  https://architg-op.github.io/Github-API-search-query/
