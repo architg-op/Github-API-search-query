@@ -9,7 +9,9 @@ function Cards() {
   const { loader, setLoader } = useContext(MyContext);
   console.log(repos);
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box
+      sx={{ width: '25%', display: 'flex', height: '25%', marginTop: '50px' }}
+    >
       {loader ? <LinearProgress /> : null}
       {repos
         ? repos.map((repo) => <SingleCard key={repo.id} repo={repo} />)
