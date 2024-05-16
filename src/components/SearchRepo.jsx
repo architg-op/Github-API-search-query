@@ -15,7 +15,7 @@ function SearchRepo() {
 
   const callApi = async () => {
     const octokit = new Octokit({
-      auth: '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',
+      auth: '',
     });
     setLoader(true);
     let allRepos = await octokit.request(`GET /search/repositories?q=${name}`, {
